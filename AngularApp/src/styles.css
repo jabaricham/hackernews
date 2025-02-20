@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, cupcake;
+}
+
+
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  @apply bg-base-100 text-base-content;
+}
+

@@ -1,0 +1,6 @@
+﻿services:
+  hackerrankfeedapi:
+    image: hackerrankfeedapi
+    build:
+      context: .
+      dockerfile: HackerRankFeedApi/Dockerfile

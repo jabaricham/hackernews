@@ -1,0 +1,55 @@
+<div class="container mx-auto px-4 py-8">
+  @if (story(); as story) {
+    <div class="card bg-base-200 shadow-xl max-w-3xl mx-auto">
+      <div class="card-body">
+        <!-- Back button -->
+        <a [routerLink]="['/']" class="btn btn-ghost btn-sm mb-4 w-fit gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          Back to stories
+        </a>
+
+        <!-- Story Title -->
+        <h1 class="text-2xl font-bold mb-2">
+          <a 
+            [href]="story.url || ''" 
+            [attr.target]="story.url ? '_blank' : null" 
+            rel="noopener noreferrer"
+            class="hover:text-primary transition-colors"
+          >
+            {{ story.title }}
+          </a>
+        </h1>
+
+        @if (story.domain) {
+          <div class="text-base-content/70 text-sm mb-4">{{ story.domain }}</div>
+        }
+
+        <!-- Story Meta -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <div class="badge badge-primary">{{ story.score || 0 }} points</div>
+          <div class="badge badge-ghost">by {{ story.by }}</div>
+          <div class="badge badge-ghost">{{ story.timeAgo || 'recently' }}</div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="divider"></div>
+        <h2 class="text-xl font-semibold mb-4">
+          {{ story.commentCount || 0 }} Comments
+        </h2>
+
+        <!-- TODO: Implement comments tree -->
+        <div class="alert alert-info">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span>Comments section coming soon...</span>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="flex flex-col items-center justify-center min-h-[300px]">
+      <span class="loading loading-spinner loading-lg text-primary"></span>
+      <p class="mt-4 text-base-content/70">Loading story details...</p>
+    </div>
+  }
+</div>

@@ -1,0 +1,8 @@
+@HackerRankFeedApi_HostAddress = http://localhost:5019
+
+### Get Top Stories with Details
+GET {{HackerRankFeedApi_HostAddress}}/hackernews/topstories
+###
+### Get Story Details
+GET {{HackerRankFeedApi_HostAddress}}/hackernews/43102284
+###
